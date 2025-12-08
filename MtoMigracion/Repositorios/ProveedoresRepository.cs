@@ -1,18 +1,19 @@
-﻿using MtoMigracion.Core;
+﻿using Microsoft.EntityFrameworkCore;
+using MtoMigracion.Core;
 using MtoMigracion.Modelos;
 
 namespace MtoMigracion.Repositorios;
 
-public class ProveedorRepository
+public class ProveedoresRepository
 {
     private readonly AppDbContext ctx;
 
-    public ProveedorRepository()
+    public ProveedoresRepository()
     {
         this.ctx = AppDbContextFactory.GetDbContext();
     }
 
-    // Upsert: si no existe inserta, si existe actualiza un proveedor
+    // Upsert: si no existe inserta, si existe actualiza el proveedor
     public void Upsert(Proveedor proveedor)
     {
         var existente = ctx.Proveedores
@@ -35,6 +36,7 @@ public class ProveedorRepository
     public IEnumerable<Proveedor> GetAll()
     {
         // Lógica para obtener todos los proveedores de la base de datos
-        return ctx.Proveedores;
+        return ctx.Proveedores
+            .Include(n => n.Articulos);
     }
 }

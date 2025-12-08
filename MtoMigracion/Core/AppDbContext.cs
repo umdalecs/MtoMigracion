@@ -22,6 +22,7 @@ public class AppDbContext: DbContext
 {
     public DbSet<Proveedor> Proveedores { get; init; }
     public DbSet<Cliente> Clientes { get; init; }
+    public DbSet<Articulo> Articulos { get; init; }
     public DbSet<NotaVenta> NotasVenta{ get; init; }
     public DbSet<DetalleNotaVenta> DetalleNotasVenta { get; init; }
 
