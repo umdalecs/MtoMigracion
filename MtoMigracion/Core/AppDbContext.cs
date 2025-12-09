@@ -20,6 +20,7 @@ public class AppDbContextFactory
 // y establece la configuración de la conexión
 public class AppDbContext: DbContext
 {
+    public DbSet<Usuario> Usuarios { get; init; }
     public DbSet<Proveedor> Proveedores { get; init; }
     public DbSet<Cliente> Clientes { get; init; }
     public DbSet<Articulo> Articulos { get; init; }
@@ -32,6 +33,6 @@ public class AppDbContext: DbContext
     {
         // Es posible que sea necesario ajustar la cadena de conexión
         optionsBuilder.UseSqlServer(
-            @"Server=localhost;Database=RYCSEMMIGRADO;Trusted_Connection=True;TrustServerCertificate=True;");
+            @"Server=DESKTOP-5VL67M5\GESTION;Database=RYCSEM;Trusted_Connection=True;TrustServerCertificate=True;");
     }
 }
