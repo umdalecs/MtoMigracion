@@ -1,18 +1,37 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿#nullable enable
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace MtoMigracion.Modelos;
 
+[Table("articulos")]
 public record Articulo
 {
-    [Key] public int ArticuloID { get; set; }
-    public string Descripcion { get; set; }
-    public string Precio { get; set; }
-    public string Status { get; set; }
-    public string Imagen { get; set; }
+    [Key]
+    [Column("cod_art")]
+    public int ArticuloID { get; set; }
 
-    // Navigation properties
+    [Column("descripcion")]
+    public string? Descripcion { get; set; }
+
+    [Column("precio")]
+    public string? Precio { get; set; }
+
+    [Column("status")]
+    public string? Status { get; set; }
+
+    [Column("imagen")]
+    public string? Imagen { get; set; }
+
+    // Map FK to the provider key column name
+    [Column("cod_prv")]
     public int ProveedorID { get; set; }
-    public Proveedor Proveedor { get; set; }
-    public ICollection<DetalleNotaVenta> DetallesNotaVenta { get; } = [];
+
+    [ForeignKey(nameof(ProveedorID))]
+    public Proveedor? Proveedor { get; set; }
+
+    public ICollection<DetalleNotaVenta> DetallesNotaVenta { get; } = new List<DetalleNotaVenta>();
 }
 
