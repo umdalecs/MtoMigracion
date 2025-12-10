@@ -103,6 +103,7 @@ namespace Formulario1
             button2.Text = "Ventas";
             button2.TextAlign = ContentAlignment.BottomCenter;
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
