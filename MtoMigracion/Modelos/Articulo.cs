@@ -1,16 +1,29 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿#nullable enable
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace MtoMigracion.Modelos;
 
+[Table("articulos")]
 public record Articulo
 {
-    [Key] public int ArticuloID { get; set; }
-    public string Descripcion { get; set; }
-    public string Precio { get; set; }
-    public string Status { get; set; }
+    [Key]
+    [Column("cod_art")]
+    public int ArticuloID { get; set; }
 
-    // Se omitirá la implementación 
-    //public string Imagen { get; set; }
+    [Column("descripcion")]
+    public string? Descripcion { get; set; }
+
+    [Column("precio")]
+    public string? Precio { get; set; }
+
+    [Column("status")]
+    public string? Status { get; set; }
+
+    [Column("imagen")]
+    public string? Imagen { get; set; }
 
     // Navigation properties
     public int ProveedorID { get; set; }
