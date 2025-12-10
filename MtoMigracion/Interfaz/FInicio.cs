@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MtoMigracion.Core;
+using MtoMigracion.Interfaz;
 using MtoMigracion.Modelos;
 using MtoMigracion.Proveedores;
 
@@ -19,7 +20,7 @@ namespace Formulario1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var form = new CatalogoProveedores();
+            var form = new FMenuVentas();
             form.Show();
         }
 
@@ -181,6 +182,5 @@ namespace Formulario1
             txtConfirmarNuevaPassword.Text = "";
             button5_Click(sender, e);
         }
-
     }
 }
