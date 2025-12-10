@@ -1,31 +1,53 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
-namespace MtoMigracion.Modelos;
-
-public record Proveedor
+namespace MtoMigracion.Modelos
 {
-    [Key] public int ProveedorID { get; set; }
-    public string Nombre { get; set; }
-    // !!! La interfaz no está normalizada
-    //public string ApellidoPat { get; set; }
-    //public string ApellidoMat { get; set; }
-    public string RazonSocial { get; set; }
-    public string Direccion { get; set; }
-    // !!! La interfaz no está normalizada
-    //public string NumDomicilio { get; set; }
-    //public string Calle { get; set; }
-    //public string EntreCalle1 { get; set; }
-    //public string EntreCalle2 { get; set; }
-    //public string Colonia { get; set; }
-    //public string CodPostal { get; set; }
-    public string Telefono { get; set; }
-    // Supongo que esto se puede obtener de el telefono
-    // vamos a ignorarlo de momento
-    //public string Extension { get; set; }
-    public string RFC { get; set; }
-    public string Email { get; set; }
-    public string Status { get; set; }
+    [Table("proveedores")]
+    public class Proveedor
+    {
+        [Key]
+        [Column("cod_prv")]
+        public int ProveedorID { get; set; }
 
-    // Navigation properties
-    public ICollection<Articulo> Articulos { get; } = [];
+        [Column("nombre")]
+        public string Nombre { get; set; } = "";
+
+        [Column("razon_social")]
+        public string RazonSocial { get; set; } = "";
+
+        [Column("rfc")]
+        public string RFC { get; set; } = "";
+
+        [Column("email")]
+        public string Email { get; set; } = "";
+
+        [Column("telefono")]
+        public string Telefono { get; set; } = "";
+
+        [Column("celular")]
+        public string Celular { get; set; } = "";
+
+        [Column("banco")]
+        public string Banco { get; set; } = "";
+
+        [Column("cuenta")]
+        public string Cuenta { get; set; } = "";
+
+        [Column("vendedor")]
+        public string Vendedor { get; set; } = "";
+
+        [Column("telefonoVendedor")]
+        public string TelefonoVendedor { get; set; } = "";
+
+        [Column("status")]
+        public string Status { get; set; } = "";
+
+        [NotMapped]
+        public string Direccion { get; set; } = "";
+
+        public ICollection<Articulo> Articulos { get; } = new List<Articulo>();
+
+    }
 }

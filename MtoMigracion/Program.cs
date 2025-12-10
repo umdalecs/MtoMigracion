@@ -1,3 +1,4 @@
+using Formulario1;
 using Microsoft.EntityFrameworkCore;
 
 using MtoMigracion.Core;
@@ -20,6 +21,6 @@ internal static class Program
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        Application.Run(new MenuInicio());
+        Application.Run(new FInicio());
     }
 }
