@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MtoMigracion.Modelos;
 using MtoMigracion.Repositorios;
 
-namespace MtoMigracion.Proveedores;
+namespace MtoMigracion.Interfaz;
 
 public partial class CatalogoProveedores : Form
 {
