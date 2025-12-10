@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using MtoMigracion.Core;
 using MtoMigracion.Modelos;
 
@@ -36,6 +37,7 @@ public class ArticulosRepository
     public IEnumerable<Articulo> GetAll()
     {
         // Lógica para obtener todos los clientes de la base de datos
-        return ctx.Articulos;
+        return ctx.Articulos
+            .Include(x => x.Proveedor);
     }
 }

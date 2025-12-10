@@ -5,23 +5,37 @@ namespace MtoMigracion.Interfaz;
 
 public partial class CatalogoArticulos : Form
 {
+    private readonly ArticulosRepository articulosRepository;
+    private readonly ProveedoresRepository proveedoresRepository;
+
+    private int IDProveedorSeleccionado = 0;
+
     public CatalogoArticulos()
     {
         InitializeComponent();
         articulosRepository = new ArticulosRepository();
+        proveedoresRepository = new ProveedoresRepository();
     }
-    private readonly ArticulosRepository articulosRepository;
     private void LoadArticulos()
     {
         articulosDataGrid.DataSource = articulosRepository.GetAll().ToList();
     }
 
+    private void LoadProveedores()
+    {
+        var proveedorIds = proveedoresRepository
+            .GetAll()
+            .Select(p => p.ProveedorID)
+            .ToList();
+
+        comboBox1.DataSource = proveedorIds;
+    }
+
     public void LimpiarFormulario()
     {
-        artID.Text = "";
-        prvID.Text = "";
-        nArt.Text = "";
-        nPrv.Text = "";
+        txtIDArticulo.Text = "";
+        txtNombre.Text = "";
+        txtNombreProveedor.Text = "";
         precio.Text = "";
         comboStatus1.Text = "";
     }
@@ -37,53 +51,18 @@ public partial class CatalogoArticulos : Form
         articulosDataGrid.AllowUserToDeleteRows = false;
 
         articulosDataGrid.CellDoubleClick += ArticulosDataGrid_CellDoubleClick;
+        LoadProveedores();
     }
 
     private void ArticulosDataGrid_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex < 0) return;
         var articulo = (Articulo)articulosDataGrid.Rows[e.RowIndex].DataBoundItem!;
-        artID.Text = articulo.ArticuloID.ToString();
-        prvID.Text = articulo.ProveedorID.ToString();
-        nArt.Text = articulo.Descripcion;
-        nPrv.Text = articulo.Proveedor.Nombre;
+        txtIDArticulo.Text = articulo.ArticuloID.ToString();
+        txtNombre.Text = articulo.Descripcion;
+        txtNombreProveedor.Text = articulo.Proveedor.Nombre;
         precio.Text = articulo.Precio;
         comboStatus1.Text = articulo.Status;
-    }
-
-    private void panel2_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label2_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void groupBox1_Enter(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label3_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label4_Click(object sender, EventArgs e)
-    {
-
     }
 
     private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,15 +71,16 @@ public partial class CatalogoArticulos : Form
 
         try
         {
-            id = int.Parse(artID.Text);
+            id = int.Parse(txtIDArticulo.Text);
         }
         catch (FormatException) { }
 
         var newArticulo = new Articulo
         {
             ArticuloID = id,
-            ProveedorID = int.Parse(prvID.Text),
-            Descripcion = nArt.Text,
+            ProveedorID = IDProveedorSeleccionado,
+
+            Descripcion = txtNombre.Text,
             Precio = precio.Text,
             Status = comboStatus1.Text
         };
@@ -115,5 +95,11 @@ public partial class CatalogoArticulos : Form
     private void limpiarToolStripMenuItem1_Click(object sender, EventArgs e)
     {
         LimpiarFormulario();
+    }
+
+    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int index = comboBox1.SelectedIndex;
+        IDProveedorSeleccionado = (int)comboBox1.Items[index]!;
     }
 }
