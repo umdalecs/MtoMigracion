@@ -28,34 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            btnVentas = new Button();
+            btnReportes = new Button();
             panelContenido = new Panel();
             SuspendLayout();
             // 
-            // button1
+            // btnVentas
             // 
-            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(17, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(215, 50);
-            button1.TabIndex = 0;
-            button1.Text = "VENTAS";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnVentas.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVentas.Location = new Point(17, 12);
+            btnVentas.Name = "btnVentas";
+            btnVentas.Size = new Size(215, 50);
+            btnVentas.TabIndex = 0;
+            btnVentas.Text = "VENTAS";
+            btnVentas.UseVisualStyleBackColor = true;
+            btnVentas.Click += btnVentas_Click;
             // 
-            // button2
+            // btnReportes
             // 
-            button2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(238, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(248, 50);
-            button2.TabIndex = 1;
-            button2.Text = "REPORTE DE VENTAS";
-            button2.UseVisualStyleBackColor = true;
+            btnReportes.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReportes.Location = new Point(238, 12);
+            btnReportes.Name = "btnReportes";
+            btnReportes.Size = new Size(248, 50);
+            btnReportes.TabIndex = 1;
+            btnReportes.Text = "REPORTE DE VENTAS";
+            btnReportes.UseVisualStyleBackColor = true;
+            btnReportes.Click += btnReportes_Click;
             // 
             // panelContenido
             // 
+            panelContenido.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelContenido.BackColor = SystemColors.ControlLight;
             panelContenido.Location = new Point(12, 90);
             panelContenido.Name = "panelContenido";
             panelContenido.Size = new Size(1320, 854);
@@ -67,18 +70,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1344, 982);
             Controls.Add(panelContenido);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnReportes);
+            Controls.Add(btnVentas);
             Name = "FMenuVentas";
             Text = "FMenuVentas";
+            WindowState = FormWindowState.Maximized;
             Load += FMenuVentas_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button btnVentas;
+        private Button btnReportes;
         private Panel panelContenido;
     }
 }
