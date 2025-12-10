@@ -1,6 +1,6 @@
 ﻿namespace MtoMigracion.Interfaz;
 
-partial class CatalogoProveedores
+partial class CatalogoClientes
 {
     /// <summary>
     /// Required designer variable.
@@ -35,8 +35,6 @@ partial class CatalogoProveedores
         groupBox1 = new GroupBox();
         comboStatus = new ComboBox();
         label13 = new Label();
-        txtEmail = new TextBox();
-        label5 = new Label();
         txtRFC = new TextBox();
         label12 = new Label();
         txtNombre = new TextBox();
@@ -45,13 +43,13 @@ partial class CatalogoProveedores
         txtRazon = new TextBox();
         txtTelefono = new TextBox();
         txtID = new TextBox();
-        proveedoresDataGrid = new DataGridView();
+        clientesDataGrid = new DataGridView();
         menuStrip1 = new MenuStrip();
         archivoToolStripMenuItem = new ToolStripMenuItem();
         guardarToolStripMenuItem = new ToolStripMenuItem();
         limpiarToolStripMenuItem = new ToolStripMenuItem();
         groupBox1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)proveedoresDataGrid).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)clientesDataGrid).BeginInit();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
@@ -60,9 +58,9 @@ partial class CatalogoProveedores
         label1.AutoSize = true;
         label1.Location = new Point(6, 19);
         label1.Name = "label1";
-        label1.Size = new Size(61, 15);
+        label1.Size = new Size(44, 15);
         label1.TabIndex = 0;
-        label1.Text = "Proveedor";
+        label1.Text = "Cliente";
         // 
         // label2
         // 
@@ -95,8 +93,6 @@ partial class CatalogoProveedores
         // 
         groupBox1.Controls.Add(comboStatus);
         groupBox1.Controls.Add(label13);
-        groupBox1.Controls.Add(txtEmail);
-        groupBox1.Controls.Add(label5);
         groupBox1.Controls.Add(txtRFC);
         groupBox1.Controls.Add(label12);
         groupBox1.Controls.Add(txtNombre);
@@ -121,7 +117,7 @@ partial class CatalogoProveedores
         comboStatus.AllowDrop = true;
         comboStatus.FormattingEnabled = true;
         comboStatus.Items.AddRange(new object[] { "Activo", "Inactivo" });
-        comboStatus.Location = new Point(489, 106);
+        comboStatus.Location = new Point(489, 74);
         comboStatus.Name = "comboStatus";
         comboStatus.Size = new Size(281, 23);
         comboStatus.TabIndex = 15;
@@ -129,27 +125,11 @@ partial class CatalogoProveedores
         // label13
         // 
         label13.AutoSize = true;
-        label13.Location = new Point(444, 109);
+        label13.Location = new Point(444, 77);
         label13.Name = "label13";
         label13.Size = new Size(39, 15);
         label13.TabIndex = 14;
         label13.Text = "Status";
-        // 
-        // txtEmail
-        // 
-        txtEmail.Location = new Point(489, 74);
-        txtEmail.Name = "txtEmail";
-        txtEmail.Size = new Size(281, 23);
-        txtEmail.TabIndex = 13;
-        // 
-        // label5
-        // 
-        label5.AutoSize = true;
-        label5.Location = new Point(444, 77);
-        label5.Name = "label5";
-        label5.Size = new Size(36, 15);
-        label5.TabIndex = 12;
-        label5.Text = "Email";
         // 
         // txtRFC
         // 
@@ -215,13 +195,13 @@ partial class CatalogoProveedores
         txtID.Size = new Size(115, 23);
         txtID.TabIndex = 5;
         // 
-        // proveedoresDataGrid
+        // clientesDataGrid
         // 
-        proveedoresDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        proveedoresDataGrid.Location = new Point(12, 198);
-        proveedoresDataGrid.Name = "proveedoresDataGrid";
-        proveedoresDataGrid.Size = new Size(776, 240);
-        proveedoresDataGrid.TabIndex = 7;
+        clientesDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        clientesDataGrid.Location = new Point(12, 198);
+        clientesDataGrid.Name = "clientesDataGrid";
+        clientesDataGrid.Size = new Size(776, 240);
+        clientesDataGrid.TabIndex = 7;
         // 
         // menuStrip1
         // 
@@ -253,21 +233,21 @@ partial class CatalogoProveedores
         limpiarToolStripMenuItem.Text = "Limpiar";
         limpiarToolStripMenuItem.Click += LimpiarToolStripMenuItem_Click;
         // 
-        // CatalogoProveedores
+        // CatalogoClientes
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
-        Controls.Add(proveedoresDataGrid);
+        Controls.Add(clientesDataGrid);
         Controls.Add(groupBox1);
         Controls.Add(menuStrip1);
         MainMenuStrip = menuStrip1;
-        Name = "CatalogoProveedores";
-        Text = "Catalogo de Proveedores";
-        Load += CatalogoProveedores_Load;
+        Name = "CatalogoClientes";
+        Text = "Catalogo de Clientes";
+        Load += CatalogoClientes_Load;
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)proveedoresDataGrid).EndInit();
+        ((System.ComponentModel.ISupportInitialize)clientesDataGrid).EndInit();
         menuStrip1.ResumeLayout(false);
         menuStrip1.PerformLayout();
         ResumeLayout(false);
@@ -290,9 +270,7 @@ partial class CatalogoProveedores
     private Label label12;
     private TextBox txtDireccion;
     private Label label13;
-    private TextBox txtEmail;
-    private Label label5;
-    private DataGridView proveedoresDataGrid;
+    private DataGridView clientesDataGrid;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem archivoToolStripMenuItem;
     private ToolStripMenuItem guardarToolStripMenuItem;
